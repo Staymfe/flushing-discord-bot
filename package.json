@@ -1,0 +1,16 @@
+{
+  "name": "flushing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.15.0",
+    "canvas": "^2.9.3",
+    "discord.js": "^13.8.1"
+  }
+}
