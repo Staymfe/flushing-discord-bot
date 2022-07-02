@@ -11,6 +11,8 @@
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
     "canvas": "^2.9.3",
-    "discord.js": "^13.8.1"
+    "discord.js": "^13.8.1",
+    "moment": "^2.29.3",
+    "nodemon": "^2.0.18"
   }
 }
