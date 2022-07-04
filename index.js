@@ -1,6 +1,6 @@
 // Des bails par défaut
 var Discord = require("discord.js");
-const { prefix, token } = require("./config.json")
+const { prefix } = require("./config.json")
 const { SlashCommandBuilder } = require("@discordjs/builders")
 const moment = require("moment")
 var Client = new Discord.Client({intents: [
@@ -34,11 +34,14 @@ Client.on("messageCreate", (message) => {
 
     // Anti Gros Mots
     for(var i in blacklisted) {
-        if(message.content.toLocaleLowerCase().includes(blacklisted[i].toLowerCase())){ foundInText = true;}
+        if(message.content.toLocaleLowerCase().includes(blacklisted[i].toLowerCase())){
+            foundInText = true;
+        }
     }
 
     if(foundInText) {
         message.delete()
+        foundInText = false
     }
 
     // Commande Avec Le Prefixe la base quoi !
@@ -53,11 +56,11 @@ Client.on("messageCreate", (message) => {
             .setDescription("Vous y trouverez la liste des commandes du bot ! Bot By !Stay#5541 ! N'oublie pas le préfix {")
             .setThumbnail("https://cdn.discordapp.com/avatars/931674220327501904/94d73611a0a756907539d324d3fac493.png?size=1024")
             .addField("**__{help__**", "Affiche la liste de tout les commands")
-            .addField("**__{ping__**", "A tes risques et périls")
+            .addField("**__{ping__**", "A tes risques et périls", true)
             .addField("**__{say__**", "Dit ce que tu lui demande")
-            .addField("**__{serverinfo__**", "Info su serveur")
+            .addField("**__{serverinfo__**", "Info su serveur", true)
             .addField("**__{userinfo__**", "Info utilisateur")
-            .addField("**__{ban__**", "Ban un membre")
+            .addField("**__{ban__**", "Ban un membre", true)
             .addField("**__{kick__**", "Kick un membre")
             .addField("**__{prune__**", "Supprime entre 2 et 99 messages")
             .setTimestamp()
